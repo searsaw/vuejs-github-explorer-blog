@@ -63,7 +63,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('start-server', function() {
-    connect.server({ root: 'gh-pages', livereload: true });
+    connect.server({ livereload: true });
 });
 
 gulp.task('watch:html', function() {
