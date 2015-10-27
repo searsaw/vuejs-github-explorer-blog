@@ -11,7 +11,7 @@ var buffer = require('vinyl-buffer');
 
 gulp.task('html', function() {
     gulp.src('src/*.html')
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('gh-pages'))
         .pipe(connect.reload());;
 });
 
@@ -25,7 +25,7 @@ gulp.task('css', function() {
 
     gulp.src(stylesheets)
         .pipe(concat('app.min.css'))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('gh-pages/css'))
 });
 
 gulp.task('fonts', function() {
@@ -35,7 +35,7 @@ gulp.task('fonts', function() {
     ];
 
     gulp.src(fonts)
-        .pipe(gulp.dest('dist/fonts'));
+        .pipe(gulp.dest('gh-pages/fonts'));
 });
 
 gulp.task('js', function() {
@@ -58,12 +58,12 @@ gulp.task('js', function() {
             this.emit("end");
         })
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('gh-pages/js'))
     .pipe(connect.reload());
 });
 
 gulp.task('start-server', function() {
-    connect.server({ root: 'dist', livereload: true });
+    connect.server({ root: 'gh-pages', livereload: true });
 });
 
 gulp.task('watch:html', function() {
